@@ -22,7 +22,7 @@ Configure make in `config.mk` with your DB settings, then:
 ```bash
 > make created_db
 > make all
-> mace clean_shapefiles
+> make cleanup_shapefiles
 ```
 
 This will build the necessary geojson files.

@@ -9,5 +9,5 @@ SHELL := /bin/bash
 # Variables specific to this build
 PG_HOST="localhost"
 PG_USER="derekeder"
-PG_DB="eitc"
+PG_DB="cafha"
 PG_PORT="5432"
