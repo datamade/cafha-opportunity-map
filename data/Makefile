@@ -14,7 +14,7 @@ opp_index_tracts.table: opp_index_tracts.shp
 	shp2pgsql -I -s 4326 -d $< $* | \
 		psql -d $(PG_DB) -U $(PG_USER) -h $(PG_HOST) -p $(PG_PORT)
 
-opportunity_data.table: opportunity_data.csv
+opportunity_data.table: opportunity_quintiles.csv
 	psql -d $(PG_DB) -U $(PG_USER) -h $(PG_HOST) -p $(PG_PORT) -c "DROP TABLE IF EXISTS opportunity_data"
 	csvsql $< \
 		--db "postgresql://$(PG_USER):@$(PG_HOST):$(PG_PORT)/$(PG_DB)" --table opportunity_data --insert
