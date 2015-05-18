@@ -2,6 +2,13 @@ var map;
 var lastClicked;
 var tract_boundaries;
 var marker;
+var info;
+
+$(window).resize(function () {
+  var h = $(window).height(),
+  offsetTop = 150; // Calculate the top offset
+  $('#map').css('height', (h - offsetTop));
+}).resize();
 
 (function(){
     map = L.map('map', {center: [41.73237975329554, -87.857666015625], zoom: 9});
@@ -32,6 +39,30 @@ var marker;
     //     return this._div;
     // }
 
+    info = L.control({position: 'topright'});
+    info.onAdd = function(map){
+        this._div = L.DomUtil.create('div', 'info');
+        this.update();
+        return this._div;
+    }
+    
+    info.update = function(props){
+        var txt;
+        if (typeof props !== 'undefined'){
+          if (props['final'])
+            txt = '<h4>'+ props['municipali'] + "<br />Opportunity index: " + props['final'] + '</h4>';
+          else
+            txt = '<h4>'+ props['municipali'] + "<br />No residents</h4>";
+          this._div.innerHTML = txt;
+        }
+    }
+
+    info.clear = function(){
+        this._div.innerHTML = '';
+    }
+
+    info.addTo(map);
+
     var cartocss = "\
     #opp_index_tracts_w_data{\
       [final = 1] {polygon-fill: #ffffcc;}\
@@ -49,13 +80,27 @@ var marker;
     var layerUrl = 'https://datamade.cartodb.com/api/v2/viz/fea272cc-fd7c-11e4-8975-0e853d047bba/viz.json';
     
     var subLayerOptions = {
-      cartocss: cartocss
+      cartocss: cartocss,
+      interactivity: 'geo_id2,final,municipali'
     }
 
     cartodb.createLayer(map, layerUrl)
       .addTo(map)
       .on('done', function(layer) {
-        layer.getSubLayer(0).set(subLayerOptions);
+        sublayer = layer.getSubLayer(0);
+        sublayer.set(subLayerOptions);
+        sublayer.setInteraction(true);
+        sublayer.on('featureOver', function(e, latlng, pos, data, subLayerIndex){
+          $('#map div').css('cursor','pointer');
+          info.update(data);
+      })
+      sublayer.on('featureOut', function(e, latlng, pos, data, subLayerIndex){
+          $('#map div').css('cursor','inherit');
+          info.clear();
+      })
+      sublayer.on('featureClick', function(e, pos, latlng, data){
+          map.setZoomAround(latlng, 13);
+      })
       }).on('error', function() {
         //log the error
       });
