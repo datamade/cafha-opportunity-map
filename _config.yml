@@ -1,9 +1,9 @@
 port:  5000
 markdown: kramdown
-name: "EITC Works!"
-url: http://eitcworks.org
+name: "Opportunity Index Map - Chicago Area Fair Housing Alliance"
+url: http://opportunity.cafha.net
 encoding: utf-8
 timezone: America/Chicago
-description: "Pinpoint how doubling the state Earned Income Tax Credit (EITC) would help lift families out of poverty and boost local economies across Illinois."
+description: ""
 gems:
   - jekyll-redirect-from

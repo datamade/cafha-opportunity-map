@@ -1,10 +1,10 @@
 body {
   padding-top: 50px;
-  font-size: 18px;
+  font: 18px "PT Sans",sans-serif;
 }
 
 a, a:hover {
-color: #90BE44;
+color: #05A9C5;
 }
 
 hr {
@@ -17,7 +17,7 @@ hr {
 }
 
 .navbar-brand { font-size: 30px;}
-.navbar-header>.navbar-brand, .navbar-inverse .navbar-nav>li>a {color: #90BE44;}
+.navbar-header>.navbar-brand, .navbar-inverse .navbar-nav>li>a {color: #05A9C5;}
 
 #map { width: 100%; height: 670px;}
 
