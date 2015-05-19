@@ -1,39 +1,97 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>
-          {% if page.title %}
-            {{page.title}} - {{site.name}}
-          {% else %}
-            {{site.name}}
-          {% endif %}
-        </title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=0.5, width=640, minimum-scale=0.5">
-        <link rel="stylesheet" href="css/normalize.css">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<html lang='en'>
+  <head>
+    <title>
+      {% if page.title %}
+        {{page.title}} - 
+      {% endif %}
+      {{site.name}} - {{site.description}}
+    </title>
+    <meta charset='utf-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% if page.description %}
+      <meta content="{{ page.description }}" name='description' />
+    {% else %}
+      <meta content="{{ site.description }}" name='description' />
+    {% endif %}
+    <meta content="{{ site.name }}" name='author' />
 
-        <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
-        <link rel="stylesheet" href="css/custom.css">
+    <!-- Facebook metadata -->
+    <meta content="{{ site.title }}" property="og:site_name">
+    {% if page.title %}
+      <meta content="{{ page.title }} - {{ site.title }}" property="og:title">
+    {% else %}
+      <meta content="{{ site.title }}" property="og:title">
+    {% endif %}
+    {% if page.title %}
+      <meta content="article" property="og:type">
+    {% else %}
+      <meta content="website" property="og:type">
+    {% endif %}
+    {% if page.description %}
+      <meta content="{{ page.description }}" property="og:description">
+    {% else %}
+      <meta content="{{ site.description }}" property="og:description">
+    {% endif %}
+    {% if page.url %}
+      <meta content="{{ site.url }}{{ page.url }}" property="og:url">
+    {% endif %}
+    {% if page.date %}
+      <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
+    {% endif %}
+    {% if page.image %}
+      <meta content="{{ site.url }}/{{ page.image }}" property="og:image">
+    {% endif %}
+    {% if page.categories %}
+      {% for category in page.categories limit:1 %}
+      <meta content="{{ category }}" property="article:section">
+      {% endfor %}
+    {% endif %}
+    {% if page.tags %}
+      {% for tag in page.tags %}
+      <meta content="{{ tag }}" property="article:tag">
+      {% endfor %}
+    {% endif %}
 
-        <script src="js/modernizr-2.6.2.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
-        <script src="js/bootstrap.min.js"></script>
+    <!-- Twitter metadata -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="{{ site.title }}">
+    <meta name="twitter:creator" content="{{ site.title }}">
+    {% if page.title %}
+      <meta name="twitter:title" content="{{ page.title }}">
+    {% else %}
+      <meta name="twitter:title" content="{{ site.title }}">
+    {% endif %}
+    {% if page.url %}
+      <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
+    {% endif %}
+    {% if page.description %}
+      <meta name="twitter:description" content="{{ page.description }}">
+    {% else %}
+      <meta name="twitter:description" content="{{ site.description }}">
+    {% endif %}
+    {% if page.image %}
+      <meta name="twitter:image:src" content="{{ site.url }}/images/{{ page.image }}">
+    {% endif %}
 
-        <script src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
-        <script src="js/jquery.geocomplete.min.js"></script>
-        <script src="js/jquery.address.js"></script>
-        <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
-        <script src="js/leaflet-google.js"></script>
-        <script src="js/leaflet-pip.min.js"></script>
-        <script src="js/leaflet.label.js"></script>
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+      <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
+      <link rel="stylesheet" href="css/custom.css">
+
+      <script src="js/modernizr-2.6.2.min.js"></script>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+      <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
+      <script src="js/bootstrap.min.js"></script>
+
+      <script src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+      <script src="js/jquery.geocomplete.min.js"></script>
+      <script src="js/jquery.address.js"></script>
+      <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+      <script src="js/leaflet-google.js"></script>
+      <script src="js/leaflet-pip.min.js"></script>
+      <script src="js/leaflet.label.js"></script>
     </head>
     <body>
     <div class="navbar navbar-inverse navbar-static-top" role="navigation">
@@ -51,7 +109,7 @@
           </a>
         </div>
         <div class="collapse navbar-collapse">
-          <span class='navbar-text'><em>Cook County, Illinois</em></span>
+          <span class='navbar-text'><em>Chicago and surrounding suburbs</em></span>
         </div><!--/.nav-collapse -->
       </div>
     </div>
@@ -62,12 +120,11 @@
         {{content}}
 
         <div class="footer">
-          <hr />
           <small class='muted'>Based on <a href='Chicago Region FHEA November 2013.pdf'>Fair Housing and Equity Assessment: Metropolitan Chicago</a> by <a href='http://www.cmap.illinois.gov/'>Chicago Metropolitan Agency for Planning</a> (CMAP) and the <a href='http://cafha.net'>Chicago Area Fair Housing Alliance</a>.</small>
           <small class='pull-left'>Website by <a href='http://datamade.us'><img class='footer-brand' src='images/datamade_logo_100_x_21.png' alt='DataMade' title='DataMade' /></a></small>
         </div>
       </div>
     </div> <!-- /container -->
     <script src="js/analytics_lib.js"></script>
-    </body>
+  </body>
 </html>

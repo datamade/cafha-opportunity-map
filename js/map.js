@@ -3,6 +3,8 @@ var lastClickedLayer;
 var tract_boundaries;
 var marker;
 var info;
+var layerUrl = 'https://datamade.cartodb.com/api/v2/viz/9fa3a94c-fe5f-11e4-9ee6-0e9d821ea90d/viz.json';
+var tableName = 'opp_index_tracts_w_data';
 
 $(window).resize(function () {
   var h = $(window).height(),
@@ -11,7 +13,7 @@ $(window).resize(function () {
 }).resize();
 
 (function(){
-    map = L.map('map', {center: [41.73237975329554, -87.857666015625], zoom: 9});
+    map = L.map('map', {center: [41.85933357450051, -87.945556640625], zoom: 9});
     
     L.tileLayer('https://{s}.tiles.mapbox.com/v3/datamade.hn83a654/{z}/{x}/{y}.png', {
         attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>',
@@ -76,9 +78,6 @@ $(window).resize(function () {
       line-opacity: 1;\
     }"
 
-    // cartodb stuff here
-    var layerUrl = 'https://datamade.cartodb.com/api/v2/viz/9fa3a94c-fe5f-11e4-9ee6-0e9d821ea90d/viz.json';
-    
     var subLayerOptions = {
       cartocss: cartocss,
       interactivity: 'geo_id2,final,municipali'
@@ -117,17 +116,16 @@ $(window).resize(function () {
         map.removeLayer(lastClickedLayer);
       }
       var sql = new cartodb.SQL({user: 'datamade', format: 'geojson'});
-      sql.execute('select * from opp_index_tracts_w_data where geo_id2 = {{tract_id}}', {tract_id:tract_id})
+      sql.execute('select * from ' + tableName + ' where geo_id2 = {{tract_id}}', {tract_id:tract_id})
         .done(function(data){
             var shape = data.features[0];
             lastClickedLayer = L.geoJson(shape);
             lastClickedLayer.addTo(map);
-            lastClickedLayer.setStyle({fillColor:'#f7fcb9', weight: 2, fillOpacity: 1, color: '#000'});
+            lastClickedLayer.setStyle({fillColor:'#f7fcb9', weight: 2, fillOpacity: 0.8, color: '#000'});
             
-            map.setView(lastClickedLayer.getBounds().getCenter(), 13);
+            map.setView(lastClickedLayer.getBounds().getCenter(), 12);
             selectParcel(shape.properties);
         }).error(function(e){console.log(e)});
-      window.location.hash = 'browse';
     }
 
     function selectParcel(props){
@@ -136,12 +134,12 @@ $(window).resize(function () {
         <h2>" + props['municipali'] + " <small><br />Tract #" + props['geo_id2'] + "</small></h2>\
         <table class='table table-bordered table-condensed'><tbody>\
           <tr><td><span data-content='Composite score for access to education, employment, fiscal capacity, income, and transportation opportunities.'><h3>Opportunity Index</h3></span></td><td><h3>" + displayQuintile(props['final']) + "</h3></td></tr>\
-          <tr><td><span data-content='Median market value of homes in 2010.'>Home value</span></td><td>" + displayQuintile(props['homeidx']) + "</td></tr>\
-          <tr><td><span data-content='Percent of residents above the poverty line.'>Residents above poverty</span></td><td>" + displayQuintile(props['povertyidx']) + "</td></tr>\
-          <tr><td><span data-content='Average time spent commuting to work. Includes time spent driving, walking or taking public transportation.'>Job travel time</span></td><td>" + displayQuintile(props['trvlidx']) + "</td></tr>\
-          <tr><td><span data-content='Percent of residents with educational degrees. Includes H.S. Diploma, Bachelors Degree and Graduate Degree.'>Resident education level</span></td><td>" + displayQuintile(props['degreeidx']) + "</td></tr>\
-          <tr><td><span data-content='Ease of access to job centers from this location.'>Access to jobs</span></td><td>" + displayQuintile(props['jobidx']) + "</td></tr>\
-          <tr><td><span data-content='Residents over 18 who are employed.'>Employment rate</span></td><td>" + displayQuintile(props['unempidx']) + "</td></tr>\
+          <tr><td><span data-content='Median market value of homes in 2010.'><i class='fa fa-home fa-fw'></i> Home value</span></td><td>" + displayQuintile(props['homeidx']) + "</td></tr>\
+          <tr><td><span data-content='Percent of residents above the poverty line.'><i class='fa fa-dollar fa-fw'></i> Residents above poverty</span></td><td>" + displayQuintile(props['povertyidx']) + "</td></tr>\
+          <tr><td><span data-content='Average time spent commuting to work. Includes time spent driving, walking or taking public transportation.'><i class='fa fa-subway fa-fw'></i> Job travel time</span></td><td>" + displayQuintile(props['trvlidx']) + "</td></tr>\
+          <tr><td><span data-content='Percent of residents with educational degrees. Includes H.S. Diploma, Bachelors Degree and Graduate Degree.'><i class='fa fa-graduation-cap fa-fw'></i> Resident education level</span></td><td>" + displayQuintile(props['degreeidx']) + "</td></tr>\
+          <tr><td><span data-content='Ease of access to job centers from this location.'><i class='fa fa-briefcase fa-fw'></i> Access to jobs</span></td><td>" + displayQuintile(props['jobidx']) + "</td></tr>\
+          <tr><td><span data-content='Residents over 18 who are employed.'><i class='fa fa-pie-chart fa-fw'></i> Employment rate</span></td><td>" + displayQuintile(props['unempidx']) + "</td></tr>\
           ";
           
       info += "</tbody></table></div></div>";
@@ -172,47 +170,38 @@ $(window).resize(function () {
         }
     }
 
+    $('#search_address').geocomplete()
+      .bind('geocode:result', function(event, result){
+        if (typeof marker !== 'undefined'){
+            map.removeLayer(marker);
+        }
 
-    // $('#search_address').geocomplete()
-    //   .bind('geocode:result', function(event, result){
-    //     if (typeof marker !== 'undefined'){
-    //         map.removeLayer(marker);
-    //     }
-    //     var lat = result.geometry.location.lat();
-    //     var lng = result.geometry.location.lng();
-    //     marker = L.marker([lat, lng]).addTo(map);
-    //     map.setView([lat, lng], 17);
-    //     var district;
-    //     district = leafletPip.pointInLayer([lng, lat], tract_boundaries);
+        var search_address = $('#search_address').val();
+        var currentPinpoint = [result.geometry.location.lat(), result.geometry.location.lng()]
+        marker = L.marker(currentPinpoint).addTo(map);
 
-    //     $.address.parameter('address', encodeURI($('#search_address').val()));
-    //     district[0].fire('click');
-    //   });
+        var sql = new cartodb.SQL({user: 'datamade', format: 'geojson'});
+        sql.execute('select geo_id2, the_geom from ' + tableName + ' where ST_Intersects( the_geom, ST_SetSRID(ST_POINT({{lng}}, {{lat}}) , 4326))', {lat:currentPinpoint[0], lng:currentPinpoint[1]})
+        .done(function(data){
+            // console.log(data);
+            getOneTract(data.features[0].properties.geo_id2)
+        }).error(function(e){console.log(e)});
 
-    // $("#search").click(function(){
-    //   $('#search_address').trigger("geocode");
-    // });
+        $.address.parameter('address', encodeURI(search_address));
+      });
 
-    // var address = convertToPlainString($.address.parameter('address'));
-    // if(address){
-    //     $("#search_address").val(address);
-    //     $('#search_address').geocomplete('find', address)
-    // }
+    $("#search").click(function(){
+      $('#search_address').trigger("geocode");
+    });
 
-    // function convertToPlainString(text) {
-    //   if (text == undefined) return '';
-    //   return decodeURIComponent(text);
-    // }
+    var address = convertToPlainString($.address.parameter('address'));
+    if(address){
+        $("#search_address").val(address);
+        $('#search_address').geocomplete('find', address)
+    }
 
-    // function addCommas(nStr) {
-    //     nStr += '';
-    //     x = nStr.split('.');
-    //     x1 = x[0];
-    //     x2 = x.length > 1 ? '.' + x[1] : '';
-    //     var rgx = /(\d+)(\d{3})/;
-    //     while (rgx.test(x1)) {
-    //       x1 = x1.replace(rgx, '$1' + ',' + '$2');
-    //     }
-    //     return x1 + x2;
-    //   }
+    function convertToPlainString(text) {
+      if (text == undefined) return '';
+      return decodeURIComponent(text);
+    }
 })()
