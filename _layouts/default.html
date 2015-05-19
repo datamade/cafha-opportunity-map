@@ -17,11 +17,11 @@
     <meta content="{{ site.name }}" name='author' />
 
     <!-- Facebook metadata -->
-    <meta content="{{ site.title }}" property="og:site_name">
+    <meta content="{{ site.name }}" property="og:site_name">
     {% if page.title %}
-      <meta content="{{ page.title }} - {{ site.title }}" property="og:title">
+      <meta content="{{ page.title }} - {{ site.name }}" property="og:title">
     {% else %}
-      <meta content="{{ site.title }}" property="og:title">
+      <meta content="{{ site.name }}" property="og:title">
     {% endif %}
     {% if page.title %}
       <meta content="article" property="og:type">
