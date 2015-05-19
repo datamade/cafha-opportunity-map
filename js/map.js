@@ -77,7 +77,7 @@ $(window).resize(function () {
     }"
 
     // cartodb stuff here
-    var layerUrl = 'https://datamade.cartodb.com/api/v2/viz/fea272cc-fd7c-11e4-8975-0e853d047bba/viz.json';
+    var layerUrl = 'https://datamade.cartodb.com/api/v2/viz/9fa3a94c-fe5f-11e4-9ee6-0e9d821ea90d/viz.json';
     
     var subLayerOptions = {
       cartocss: cartocss,
@@ -135,19 +135,20 @@ $(window).resize(function () {
       var info = "<div class='row'><div class='col-xs-6 col-md-12'>\
         <h2>" + props['municipali'] + " <small><br />Tract #" + props['geo_id2'] + "</small></h2>\
         <table class='table table-bordered table-condensed'><tbody>\
-          <tr><td><strong><h3>Opportunity Index</h3></strong></td><td><h3>" + displayQuintile(props['final']) + "</h3></td></tr>\
-          <tr><td>Median home value</td><td>" + displayQuintile(props['med_home_v']) + "</td></tr>\
-          <tr><td>Above poverty rate</td><td>" + displayQuintile(props['poverty_ra']) + "</td></tr>\
-          <tr><td>Mean travel time</td><td>" + displayQuintile(props['mean_trvl']) + "</td></tr>\
-          <tr><td>Education level</td><td>" + displayQuintile(props['degree']) + "</td></tr>\
-          <tr><td>Job access</td><td>" + displayQuintile(props['job_access']) + "</td></tr>\
-          <tr><td>Employment</td><td>" + displayQuintile(props['unemp_pct']) + "</td></tr>\
+          <tr><td><span data-content='Composite score for access to education, employment, fiscal capacity, income, and transportation opportunities.'><h3>Opportunity Index</h3></span></td><td><h3>" + displayQuintile(props['final']) + "</h3></td></tr>\
+          <tr><td><span data-content='Median market value of homes in 2010.'>Home value</span></td><td>" + displayQuintile(props['homeidx']) + "</td></tr>\
+          <tr><td><span data-content='Percent of residents above the poverty line.'>Residents above poverty</span></td><td>" + displayQuintile(props['povertyidx']) + "</td></tr>\
+          <tr><td><span data-content='Average time spent commuting to work. Includes time spent driving, walking or taking public transportation.'>Job travel time</span></td><td>" + displayQuintile(props['trvlidx']) + "</td></tr>\
+          <tr><td><span data-content='Percent of residents with educational degrees. Includes H.S. Diploma, Bachelors Degree and Graduate Degree.'>Resident education level</span></td><td>" + displayQuintile(props['degreeidx']) + "</td></tr>\
+          <tr><td><span data-content='Ease of access to job centers from this location.'>Access to jobs</span></td><td>" + displayQuintile(props['jobidx']) + "</td></tr>\
+          <tr><td><span data-content='Residents over 18 who are employed.'>Employment rate</span></td><td>" + displayQuintile(props['unempidx']) + "</td></tr>\
           ";
           
       info += "</tbody></table></div></div>";
 
       $.address.parameter('tract_id', props.geo_id2)
       $('#tract-info').html(info);
+      $('#tract-info span').popover({trigger: "hover", placement: "left"})
     }
 
     function displayQuintile(val){
@@ -156,7 +157,7 @@ $(window).resize(function () {
 
         else {
             var stars = Array( val + 1 ).join( "<i class='fa fa-star'></i> " );
-            return "<span title='" + val + " out of 5'>" + stars + "</span>";
+            return stars;
         }
     }
 

@@ -3,21 +3,25 @@ layout: default
 ---
 
 <div class='row'>
-  <div class='col-md-6'>
-    <form class='form-inline hidden-print'>
-      <input class='form-control input-lg' id='search_address' placeholder='Enter an address to find its opportunity score' type='text' />
-      <input class='btn btn-primary btn-lg' id='search' type='button' value='Search' />
-    </form>
-    <br />
-  </div>
-</div>
-<div class='row'>
   <div class='col-md-7'>
     <div id='map'></div>
   </div>
   <div class='col-md-5'>
+    <form class='form-search'>
+      <div class='input-group'>
+        <input class='form-control input-lg' id='search_address' placeholder='Enter an address' type='text' />
+        <span class="input-group-btn">
+          <input class='btn btn-primary' id='search' type='button' value='Search' />
+        </span>
+      </div>
+    </form>
+    <br />
+
     <div class='well' id='tract-info'>
-      <h3>Details</h3>
+      <h3>Where's the opportunity?</h3>
+      <p>Find the levels of access to education, employment, fiscal capacity, income, and transportation for any place in Cook County.</p>
+
+      <p>Enter an address or browse the map to find the opportunity for your neighborhood.</p>
     </div>
   </div>
 </div>

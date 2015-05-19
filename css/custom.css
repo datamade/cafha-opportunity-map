@@ -53,12 +53,6 @@ hr {
     animation: none!important;
 }
 
-@media (min-width:768px){
-  #search_address {
-      width: 450px;
-  }
-}
-
 #take-action {
   color: #333;
 }

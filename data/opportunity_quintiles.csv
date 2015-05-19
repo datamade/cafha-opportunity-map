@@ -1,4 +1,4 @@
-GEO.id2,GEO.display-label,County,Municipality,Unemp Pct,Mean Trvl Time,degree,Med Home Val 2010,house index,school index,job access,transit index,poverty rate,EAV 2008,TOTAL,FINAL,Total/60
+GEO.id2,GEO.display-label,County,Municipality,UnempIdx,TrvlIdx,DegreeIdx,HomeIdx,HouseIdx,schoolIdx,jobIdx,transitIdx,povertyIdx,EAV 2008,TOTAL,FINAL,Total/60
 17097864904,"Census Tract 8649.04, Lake County, Illinois",Lake,Deerfield,5,5,4,5,5,5,5,4,5,5,48,5,5
 17031805902,"Census Tract 8059.02, Cook County, Illinois",Cook,Park Ridge,5,5,4,5,5,5,5,4,5,4,47,5,5
 17043842900,"Census Tract 8429, DuPage County, Illinois",DuPage,Elmhurst,5,5,4,5,4,5,5,5,5,4,47,5,5
