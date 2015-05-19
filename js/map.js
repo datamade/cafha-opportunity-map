@@ -1,5 +1,5 @@
 var map;
-var lastClicked;
+var lastClickedLayer;
 var tract_boundaries;
 var marker;
 var info;
@@ -50,7 +50,7 @@ $(window).resize(function () {
         var txt;
         if (typeof props !== 'undefined'){
           if (props['final'])
-            txt = '<h4>'+ props['municipali'] + "<br />Opportunity index: " + props['final'] + '</h4>';
+            txt = '<h4>'+ props['municipali'] + "<br />" + displayQuintile(props['final']) + '</h4>';
           else
             txt = '<h4>'+ props['municipali'] + "<br />No residents</h4>";
           this._div.innerHTML = txt;
@@ -99,11 +99,84 @@ $(window).resize(function () {
           info.clear();
       })
       sublayer.on('featureClick', function(e, pos, latlng, data){
-          map.setZoomAround(latlng, 13);
+          getOneTract(data['geo_id2']);
       })
+
+      window.setTimeout(function(){
+        if($.address.parameter('tract_id')){
+            getOneTract($.address.parameter('tract_id'))
+        }
+      }, 1000)
+
       }).on('error', function() {
         //log the error
       });
+
+    function getOneTract(tract_id){
+      if (lastClickedLayer){
+        map.removeLayer(lastClickedLayer);
+      }
+      var sql = new cartodb.SQL({user: 'datamade', format: 'geojson'});
+      sql.execute('select * from opp_index_tracts_w_data where geo_id2 = {{tract_id}}', {tract_id:tract_id})
+        .done(function(data){
+            var shape = data.features[0];
+            lastClickedLayer = L.geoJson(shape);
+            lastClickedLayer.addTo(map);
+            lastClickedLayer.setStyle({fillColor:'#f7fcb9', weight: 2, fillOpacity: 1, color: '#000'});
+            
+            map.setView(lastClickedLayer.getBounds().getCenter(), 13);
+            selectParcel(shape.properties);
+        }).error(function(e){console.log(e)});
+      window.location.hash = 'browse';
+    }
+
+    function selectParcel(props){
+
+      var info = "<div class='row'><div class='col-xs-6 col-md-12'>\
+        <h2>" + props['municipali'] + " <small><br />Tract #" + props['geo_id2'] + "</small></h2>\
+        <table class='table table-bordered table-condensed'><tbody>\
+          <tr><td><strong><h3>Opportunity Index</h3></strong></td><td><h3>" + displayQuintile(props['final']) + "</h3></td></tr>\
+          <tr><td>Median home value</td><td>" + displayQuintile(props['med_home_v']) + "</td></tr>\
+          <tr><td>Poverty rate</td><td>" + displayQuintile(props['poverty_ra']) + "</td></tr>\
+          <tr><td>Mean travel time</td><td>" + displayQuintile(props['mean_trvl']) + "</td></tr>\
+          <tr><td>Education level</td><td>" + displayQuintile(props['degree']) + "</td></tr>\
+          <tr><td>Job access</td><td>" + displayQuintile(props['job_access']) + "</td></tr>\
+          <tr><td>Unemployment</td><td>" + displayQuintile(props['unemp_pct']) + "</td></tr>\
+          ";
+          
+      info += "</tbody></table></div></div>";
+
+      $.address.parameter('tract_id', props.geo_id2)
+      $('#tract-info').html(info);
+    }
+
+    function displayQuintile(val){
+        if (val == 0)
+            return "<span class='label label-default'>No data</span>";
+
+        else {
+            var stars = Array( val + 1 ).join( "<i class='fa fa-star'></i> " );
+            return "<span title='" + val + " out of 5'>" + stars + "</span>";
+        }
+
+        // switch (val) {
+        //     case 0:
+        //         return "<span class='label label-default'>No data</span>";
+        //     case 1:
+        //         return "<span class='label label-danger'>Not good</span>";
+        //     case 2:
+        //         return "<span class='label label-warning'>Below Average</span>";
+        //     case 3:
+        //         return "<span class='label label-info'>Average</span>";
+        //     case 4:
+        //         return "<span class='label label-success'>Above Average</span>";
+        //     case 5:
+        //         return "<span class='label label-success'>Great</span>";
+        //     default:
+        //         return "";
+        // }
+    }
+
 
 
     // $('#search_address').geocomplete()
