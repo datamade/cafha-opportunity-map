@@ -25,6 +25,7 @@ hr {
   font-family:'Montserrat',sans-serif;
   background-color: #fff;
   padding: 0 10px;
+  min-width: 200px;
   -moz-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
   -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
   box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);

@@ -52,7 +52,7 @@ $(window).resize(function () {
           if (props['final'])
             txt = '<h4>'+ props['municipali'] + "<br />" + displayQuintile(props['final']) + '</h4>';
           else
-            txt = '<h4>'+ props['municipali'] + "<br />No residents</h4>";
+            txt = '<h4>'+ props['municipali'] + "<br />No data</h4>";
           this._div.innerHTML = txt;
         }
     }
@@ -65,11 +65,11 @@ $(window).resize(function () {
 
     var cartocss = "\
     #opp_index_tracts_w_data{\
-      [final = 1] {polygon-fill: #ffffcc;}\
-      [final = 2] {polygon-fill: #a1dab4;}\
-      [final = 3] {polygon-fill: #41b6c4;}\
-      [final = 4] {polygon-fill: #2c7fb8;}\
-      [final = 5] {polygon-fill: #253494;}\
+      [final = 1] {polygon-fill: " + getColor(1) + ";}\
+      [final = 2] {polygon-fill: " + getColor(2) + ";}\
+      [final = 3] {polygon-fill: " + getColor(3) + ";}\
+      [final = 4] {polygon-fill: " + getColor(4) + ";}\
+      [final = 5] {polygon-fill: " + getColor(5) + ";}\
       polygon-opacity: 0.5;\
       line-color: #FFF;\
       line-width: 0.5;\
@@ -137,11 +137,11 @@ $(window).resize(function () {
         <table class='table table-bordered table-condensed'><tbody>\
           <tr><td><strong><h3>Opportunity Index</h3></strong></td><td><h3>" + displayQuintile(props['final']) + "</h3></td></tr>\
           <tr><td>Median home value</td><td>" + displayQuintile(props['med_home_v']) + "</td></tr>\
-          <tr><td>Poverty rate</td><td>" + displayQuintile(props['poverty_ra']) + "</td></tr>\
+          <tr><td>Above poverty rate</td><td>" + displayQuintile(props['poverty_ra']) + "</td></tr>\
           <tr><td>Mean travel time</td><td>" + displayQuintile(props['mean_trvl']) + "</td></tr>\
           <tr><td>Education level</td><td>" + displayQuintile(props['degree']) + "</td></tr>\
           <tr><td>Job access</td><td>" + displayQuintile(props['job_access']) + "</td></tr>\
-          <tr><td>Unemployment</td><td>" + displayQuintile(props['unemp_pct']) + "</td></tr>\
+          <tr><td>Employment</td><td>" + displayQuintile(props['unemp_pct']) + "</td></tr>\
           ";
           
       info += "</tbody></table></div></div>";
@@ -152,31 +152,24 @@ $(window).resize(function () {
 
     function displayQuintile(val){
         if (val == 0)
-            return "<span class='label label-default'>No data</span>";
+            return "No data";
 
         else {
             var stars = Array( val + 1 ).join( "<i class='fa fa-star'></i> " );
             return "<span title='" + val + " out of 5'>" + stars + "</span>";
         }
-
-        // switch (val) {
-        //     case 0:
-        //         return "<span class='label label-default'>No data</span>";
-        //     case 1:
-        //         return "<span class='label label-danger'>Not good</span>";
-        //     case 2:
-        //         return "<span class='label label-warning'>Below Average</span>";
-        //     case 3:
-        //         return "<span class='label label-info'>Average</span>";
-        //     case 4:
-        //         return "<span class='label label-success'>Above Average</span>";
-        //     case 5:
-        //         return "<span class='label label-success'>Great</span>";
-        //     default:
-        //         return "";
-        // }
     }
 
+    function getColor(val) {
+        switch (val) {
+            case 1: return "#edf8e9";
+            case 2: return "#bae4b3";
+            case 3: return "#74c476";
+            case 4: return "#31a354";
+            case 5: return "#006d2c";
+            default: return "#cccccc";
+        }
+    }
 
 
     // $('#search_address').geocomplete()
