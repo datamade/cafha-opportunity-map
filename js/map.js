@@ -15,31 +15,13 @@ $(window).resize(function () {
 (function(){
     map = L.map('map', {center: [41.85933357450051, -87.945556640625], zoom: 9});
     
-    L.tileLayer('https://{s}.tiles.mapbox.com/v3/datamade.hn83a654/{z}/{x}/{y}.png', {
-        attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>',
-        detectRetina: true
-    }).addTo(map);
+    // L.tileLayer('https://{s}.tiles.mapbox.com/v3/datamade.hn83a654/{z}/{x}/{y}.png', {
+    //     attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>',
+    //     detectRetina: true
+    // }).addTo(map);
 
-    // var googleLayer = new L.Google('ROADMAP', {animate: false});
-    // map.addLayer(googleLayer);
-    // map.on('zoomstart', function(e){
-    //     map.removeLayer(tract_boundaries);
-    //     if (typeof marker !== 'undefined'){
-    //         map.removeLayer(marker);
-    //     }
-    // })
-    // google.maps.event.addListener(googleLayer._google, 'idle', function(e){
-    //     map.addLayer(tract_boundaries);
-    //     if (typeof marker !== 'undefined'){
-    //         map.addLayer(marker);
-    //     }
-    // })
-
-    // var info = L.control({position: 'bottomleft'});
-    // info.onAdd = function(map){
-    //     this._div = L.DomUtil.create('div', 'info');
-    //     return this._div;
-    // }
+    var googleLayer = new L.Google('ROADMAP', {animate: false});
+    map.addLayer(googleLayer);
 
     info = L.control({position: 'topright'});
     info.onAdd = function(map){
