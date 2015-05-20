@@ -1,3 +1,4 @@
+// variable init
 var map;
 var lastClickedLayer;
 var tract_boundaries;
@@ -6,19 +7,16 @@ var info;
 var layerUrl = 'https://datamade.cartodb.com/api/v2/viz/9fa3a94c-fe5f-11e4-9ee6-0e9d821ea90d/viz.json';
 var tableName = 'opp_index_tracts_w_data';
 
+// set size of map based on window height
 $(window).resize(function () {
   var h = $(window).height(),
   offsetTop = 150; // Calculate the top offset
   $('#map').css('height', (h - offsetTop));
 }).resize();
 
+// do stuff when the page loads
 (function(){
     map = L.map('map', {center: [41.85933357450051, -87.945556640625], zoom: 9});
-    
-    // L.tileLayer('https://{s}.tiles.mapbox.com/v3/datamade.hn83a654/{z}/{x}/{y}.png', {
-    //     attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>',
-    //     detectRetina: true
-    // }).addTo(map);
 
     var googleLayer = new L.Google('ROADMAP', {animate: false});
     map.addLayer(googleLayer);
@@ -93,65 +91,6 @@ $(window).resize(function () {
         //log the error
       });
 
-    function getOneTract(tract_id){
-      if (lastClickedLayer){
-        map.removeLayer(lastClickedLayer);
-      }
-      var sql = new cartodb.SQL({user: 'datamade', format: 'geojson'});
-      sql.execute('select * from ' + tableName + ' where geo_id2 = {{tract_id}}', {tract_id:tract_id})
-        .done(function(data){
-            var shape = data.features[0];
-            lastClickedLayer = L.geoJson(shape);
-            lastClickedLayer.addTo(map);
-            lastClickedLayer.setStyle({fillColor:'#f7fcb9', weight: 2, fillOpacity: 0.8, color: '#000'});
-            
-            map.setView(lastClickedLayer.getBounds().getCenter(), 12);
-            selectParcel(shape.properties);
-        }).error(function(e){console.log(e)});
-    }
-
-    function selectParcel(props){
-
-      var info = "<div class='row'><div class='col-xs-6 col-md-12'>\
-        <h2>" + props['municipali'] + " <small><br />Tract #" + props['geo_id2'] + "</small></h2>\
-        <table class='table table-bordered table-condensed'><tbody>\
-          <tr><td><span data-content='Composite score for access to education, employment, fiscal capacity, income, and transportation opportunities.'><h3>Opportunity Index</h3></span></td><td><h3>" + displayQuintile(props['final']) + "</h3></td></tr>\
-          <tr><td><span data-content='Median market value of homes in 2010.'><i class='fa fa-home fa-fw'></i> Home value</span></td><td>" + displayQuintile(props['homeidx']) + "</td></tr>\
-          <tr><td><span data-content='Percent of residents above the poverty line.'><i class='fa fa-dollar fa-fw'></i> Residents above poverty</span></td><td>" + displayQuintile(props['povertyidx']) + "</td></tr>\
-          <tr><td><span data-content='Average time spent commuting to work. Includes time spent driving, walking or taking public transportation.'><i class='fa fa-subway fa-fw'></i> Job travel time</span></td><td>" + displayQuintile(props['trvlidx']) + "</td></tr>\
-          <tr><td><span data-content='Percent of residents with educational degrees. Includes H.S. Diploma, Bachelors Degree and Graduate Degree.'><i class='fa fa-graduation-cap fa-fw'></i> Resident education level</span></td><td>" + displayQuintile(props['degreeidx']) + "</td></tr>\
-          <tr><td><span data-content='Ease of access to job centers from this location.'><i class='fa fa-briefcase fa-fw'></i> Access to jobs</span></td><td>" + displayQuintile(props['jobidx']) + "</td></tr>\
-          <tr><td><span data-content='Residents over 18 who are employed.'><i class='fa fa-pie-chart fa-fw'></i> Employment rate</span></td><td>" + displayQuintile(props['unempidx']) + "</td></tr>\
-          ";
-          
-      info += "</tbody></table></div></div>";
-
-      $.address.parameter('tract_id', props.geo_id2)
-      $('#tract-info').html(info);
-      $('#tract-info span').popover({trigger: "hover", placement: "left"})
-    }
-
-    function displayQuintile(val){
-        if (val == 0)
-            return "No data";
-
-        else {
-            var stars = Array( val + 1 ).join( "<i class='fa fa-star'></i> " );
-            return stars;
-        }
-    }
-
-    function getColor(val) {
-        switch (val) {
-            case 1: return "#edf8e9";
-            case 2: return "#bae4b3";
-            case 3: return "#74c476";
-            case 4: return "#31a354";
-            case 5: return "#006d2c";
-            default: return "#cccccc";
-        }
-    }
-
     $('#search_address').geocomplete()
       .bind('geocode:result', function(event, result){
         if (typeof marker !== 'undefined'){
@@ -181,9 +120,69 @@ $(window).resize(function () {
         $("#search_address").val(address);
         $('#search_address').geocomplete('find', address)
     }
-
-    function convertToPlainString(text) {
-      if (text == undefined) return '';
-      return decodeURIComponent(text);
-    }
 })()
+
+// helper functions
+function getOneTract(tract_id){
+  if (lastClickedLayer){
+    map.removeLayer(lastClickedLayer);
+  }
+  var sql = new cartodb.SQL({user: 'datamade', format: 'geojson'});
+  sql.execute('select * from ' + tableName + ' where geo_id2 = {{tract_id}}', {tract_id:tract_id})
+    .done(function(data){
+        var shape = data.features[0];
+        lastClickedLayer = L.geoJson(shape);
+        lastClickedLayer.addTo(map);
+        lastClickedLayer.setStyle({fillColor:'#f7fcb9', weight: 2, fillOpacity: 0.8, color: '#000'});
+        
+        map.setView(lastClickedLayer.getBounds().getCenter(), 12);
+        selectParcel(shape.properties);
+    }).error(function(e){console.log(e)});
+}
+
+function selectParcel(props){
+
+  var info = "<div class='row'><div class='col-xs-6 col-md-12'>\
+    <h2>" + props['municipali'] + " <small><br />Tract #" + props['geo_id2'] + "</small></h2>\
+    <table class='table table-bordered table-condensed'><tbody>\
+      <tr><td><span data-content='Composite score for access to education, employment, fiscal capacity, income, and transportation opportunities.'><h3>Opportunity Index</h3></span></td><td><h3>" + displayQuintile(props['final']) + "</h3></td></tr>\
+      <tr><td><span data-content='Median market value of homes in 2010.'><i class='fa fa-home fa-fw'></i> Home value</span></td><td>" + displayQuintile(props['homeidx']) + "</td></tr>\
+      <tr><td><span data-content='Percent of residents above the poverty line.'><i class='fa fa-dollar fa-fw'></i> Residents above poverty</span></td><td>" + displayQuintile(props['povertyidx']) + "</td></tr>\
+      <tr><td><span data-content='Average time spent commuting to work. Includes time spent driving, walking or taking public transportation.'><i class='fa fa-subway fa-fw'></i> Job travel time</span></td><td>" + displayQuintile(props['trvlidx']) + "</td></tr>\
+      <tr><td><span data-content='Percent of residents with educational degrees. Includes H.S. Diploma, Bachelors Degree and Graduate Degree.'><i class='fa fa-graduation-cap fa-fw'></i> Resident education level</span></td><td>" + displayQuintile(props['degreeidx']) + "</td></tr>\
+      <tr><td><span data-content='Ease of access to job centers from this location.'><i class='fa fa-briefcase fa-fw'></i> Access to jobs</span></td><td>" + displayQuintile(props['jobidx']) + "</td></tr>\
+      <tr><td><span data-content='Residents over 18 who are employed.'><i class='fa fa-pie-chart fa-fw'></i> Employment rate</span></td><td>" + displayQuintile(props['unempidx']) + "</td></tr>\
+      ";
+      
+  info += "</tbody></table></div></div>";
+
+  $.address.parameter('tract_id', props.geo_id2)
+  $('#tract-info').html(info);
+  $('#tract-info span').popover({trigger: "hover", placement: "left"})
+}
+
+function displayQuintile(val){
+    if (val == 0)
+        return "No data";
+
+    else {
+        var stars = Array( val + 1 ).join( "<i class='fa fa-star'></i> " );
+        return stars;
+    }
+}
+
+function getColor(val) {
+    switch (val) {
+        case 1: return "#edf8e9";
+        case 2: return "#bae4b3";
+        case 3: return "#74c476";
+        case 4: return "#31a354";
+        case 5: return "#006d2c";
+        default: return "#cccccc";
+    }
+}
+
+function convertToPlainString(text) {
+  if (text == undefined) return '';
+  return decodeURIComponent(text);
+}
