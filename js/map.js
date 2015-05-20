@@ -4,7 +4,7 @@ var lastClickedLayer;
 var tract_boundaries;
 var marker;
 var info;
-var layerUrl = 'https://datamade.cartodb.com/api/v2/viz/80c865ba-ff2e-11e4-a3b6-0e853d047bba/viz.json';
+var layerUrl = 'https://datamade.cartodb.com/api/v2/viz/3e12a53a-ff3a-11e4-81f8-0e0c41326911/viz.json';
 var tableName = 'opp_index_tracts_w_data';
 
 // set size of map based on window height
