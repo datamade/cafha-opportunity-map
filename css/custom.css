@@ -16,7 +16,6 @@ hr {
   font-size: .8em;
 }
 
-.navbar-brand { font-size: 30px;}
 .navbar-header>.navbar-brand, .navbar-inverse .navbar-nav>li>a {color: #05A9C5;}
 
 #map { width: 100%; }
