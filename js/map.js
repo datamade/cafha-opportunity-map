@@ -4,7 +4,7 @@ var lastClickedLayer;
 var tract_boundaries;
 var marker;
 var info;
-var layerUrl = 'https://datamade.cartodb.com/api/v2/viz/9fa3a94c-fe5f-11e4-9ee6-0e9d821ea90d/viz.json';
+var layerUrl = 'https://datamade.cartodb.com/api/v2/viz/80c865ba-ff2e-11e4-a3b6-0e853d047bba/viz.json';
 var tableName = 'opp_index_tracts_w_data';
 
 // set size of map based on window height
@@ -90,6 +90,26 @@ $(window).resize(function () {
       }).on('error', function() {
         //log the error
       });
+
+
+    // $.when($.getJSON('data/city_of_chicago.geojson')).then(
+    //     function(shapes){
+    //         L.geoJson(shapes, {
+    //             style: chicago_style
+    //         }).addTo(map);
+    //     }
+    // );
+
+    // function chicago_style(feature){
+    //     var style = {
+    //         "color": "white",
+    //         "fillColor": "#713589",
+    //         "opacity": 1,
+    //         "weight": 1,
+    //         "fillOpacity": 0.5,
+    //     }
+    //     return style;
+    // }
 
     $('#search_address').geocomplete()
       .bind('geocode:result', function(event, result){
