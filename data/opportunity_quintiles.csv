@@ -7,7 +7,7 @@
 17043840303,"Census Tract 8403.03, DuPage County, Illinois","DuPage","Addison",1,5,5,3,2,3,4,1,4,3,31,3,3
 17043840906,"Census Tract 8409.06, DuPage County, Illinois","DuPage","Addison",2,4,5,3,2,4,5,1,2,3,31,3,3
 17043846701,"Census Tract 8467.01, DuPage County, Illinois","DuPage","Addison",2,5,2,3,0,0,0,0,3,3,18,3,3
-17031840300,"Census Tract 8403, Cook County, Illinois","Cook","Addison",2,3,5,3,2,3,4,1,2,3,28,2,3
+17031840300,"Census Tract 8403, Cook County, Illinois","Cook","Chicago city",2,3,5,3,2,3,4,1,2,3,28,2,3
 17043846702,"Census Tract 8467.02, DuPage County, Illinois","DuPage","Addison",1,5,2,3,0,0,0,0,2,3,16,2,3
 17111871404,"Census Tract 8714.04, McHenry County, Illinois","McHenry","Algonquin",5,4,4,3,5,5,3,1,5,3,38,5,4
 17111871310,"Census Tract 8713.10, McHenry County, Illinois","McHenry","Algonquin",5,3,3,3,4,5,3,1,5,3,35,4,4
@@ -102,7 +102,7 @@
 17043841316,"Census Tract 8413.16, DuPage County, Illinois","DuPage","Bartlett",4,2,3,4,4,5,1,3,5,3,34,4,3
 17043841323,"Census Tract 8413.23, DuPage County, Illinois","DuPage","Bartlett",3,3,4,2,5,5,1,1,5,3,32,4,3
 17031804508,"Census Tract 8045.08, Cook County, Illinois","Cook","Bartlett",1,2,4,2,4,5,4,5,2,3,32,4,3
-17031841300,"Census Tract 8413, Cook County, Illinois","Cook","Bartlett",2,4,5,3,5,4,4,1,1,3,32,4,3
+17031841300,"Census Tract 8413, Cook County, Illinois","Cook","Chicago city",2,4,5,3,5,4,4,1,1,3,32,4,3
 17031804403,"Census Tract 8044.03, Cook County, Illinois","Cook","Bartlett",3,4,3,2,3,4,3,2,4,3,31,3,3
 17031804404,"Census Tract 8044.04, Cook County, Illinois","Cook","Bartlett",3,4,4,2,3,4,3,2,3,3,31,3,3
 17043841320,"Census Tract 8413.20, DuPage County, Illinois","DuPage","Bartlett",2,4,3,2,4,5,1,1,3,3,28,2,3
@@ -119,12 +119,12 @@
 17031817102,"Census Tract 8171.02, Cook County, Illinois","Cook","Bellwood",1,5,4,1,2,1,5,3,1,1,24,2,2
 17031817000,"Census Tract 8170, Cook County, Illinois","Cook","Bellwood",1,3,1,2,1,1,4,4,3,1,21,1,2
 17031817101,"Census Tract 8171.01, Cook County, Illinois","Cook","Bellwood",1,5,1,1,1,1,1,3,3,1,18,1,2
-17031840000,"Census Tract 8400, Cook County, Illinois","Cook","Bensenville",5,5,4,4,1,4,5,3,3,3,37,5,4
+17031840000,"Census Tract 8400, Cook County, Illinois","Cook","Chicago city",5,5,4,4,1,4,5,3,3,3,37,5,4
 17043840802,"Census Tract 8408.02, DuPage County, Illinois","DuPage","Bensenville",3,5,3,3,1,4,4,5,2,3,33,4,3
 17043840000,"Census Tract 8400, DuPage County, Illinois","DuPage","Bensenville",5,5,1,2,1,4,5,3,2,3,31,3,3
 17043840801,"Census Tract 8408.01, DuPage County, Illinois","DuPage","Bensenville",5,5,2,2,1,4,4,4,1,3,31,3,3
-17031840800,"Census Tract 8408, Cook County, Illinois","Cook","Bensenville",2,3,2,2,1,4,4,4,1,3,26,2,3
-17031840700,"Census Tract 8407, Cook County, Illinois","Cook","Bensenville",1,2,2,2,2,4,4,3,1,3,24,2,2
+17031840800,"Census Tract 8408, Cook County, Illinois","Cook","Chicago city",2,3,2,2,1,4,4,4,1,3,26,2,3
+17031840700,"Census Tract 8407, Cook County, Illinois","Cook","Chicago city",1,2,2,2,2,4,4,3,1,3,24,2,2
 17031816800,"Census Tract 8168, Cook County, Illinois","Cook","Berkeley",2,4,5,2,2,3,5,4,4,2,33,4,3
 17031815400,"Census Tract 8154, Cook County, Illinois","Cook","Berwyn",3,3,2,3,3,3,5,5,2,1,30,3,3
 17031815300,"Census Tract 8153, Cook County, Illinois","Cook","Berwyn",4,4,2,2,2,3,3,5,3,1,29,3,3
@@ -143,9 +143,9 @@
 17043841109,"Census Tract 8411.09, DuPage County, Illinois","DuPage","Bloomingdale",3,5,5,2,5,5,4,1,3,4,37,5,4
 17043841113,"Census Tract 8411.13, DuPage County, Illinois","DuPage","Bloomingdale",2,5,4,4,4,4,3,1,4,4,35,4,4
 17043841002,"Census Tract 8410.02, DuPage County, Illinois","DuPage","Bloomingdale",4,3,5,4,3,4,2,3,3,4,35,4,4
-17031841100,"Census Tract 8411, Cook County, Illinois","Cook","Bloomingdale",2,5,5,3,5,5,2,2,1,4,34,4,3
+17031841100,"Census Tract 8411, Cook County, Illinois","Cook","Chicago city",2,5,5,3,5,5,2,2,1,4,34,4,3
 17043840908,"Census Tract 8409.08, DuPage County, Illinois","DuPage","Bloomingdale",1,3,3,2,3,4,5,1,3,4,29,3,3
-17031841000,"Census Tract 8410, Cook County, Illinois","Cook","Bloomingdale",1,5,2,4,3,4,2,3,1,4,29,3,3
+17031841000,"Census Tract 8410, Cook County, Illinois","Cook","Chicago city",1,5,2,4,3,4,2,3,1,4,29,3,3
 17031823500,"Census Tract 8235, Cook County, Illinois","Cook","Blue Island",1,5,4,1,1,2,4,5,2,1,26,2,3
 17031824300,"Census Tract 8243, Cook County, Illinois","Cook","Blue Island",1,4,5,1,1,2,3,5,1,1,24,2,2
 17031821200,"Census Tract 8212, Cook County, Illinois","Cook","Blue Island",1,1,4,1,1,2,5,5,2,1,23,2,2
@@ -235,7 +235,7 @@
 17043841703,"Census Tract 8417.03, DuPage County, Illinois","DuPage","Carol Stream",2,4,1,2,2,5,5,1,2,3,27,2,3
 17043841210,"Census Tract 8412.10, DuPage County, Illinois","DuPage","Carol Stream",3,5,1,1,3,4,3,1,2,3,26,2,3
 17043841205,"Census Tract 8412.05, DuPage County, Illinois","DuPage","Carol Stream",2,3,1,3,3,4,1,1,4,3,25,2,3
-17031841700,"Census Tract 8417, Cook County, Illinois","Cook","Carol Stream",2,3,1,2,2,5,5,1,1,3,25,2,3
+17031841700,"Census Tract 8417, Cook County, Illinois","Cook","Chicago city",2,3,1,2,2,5,5,1,1,3,25,2,3
 17089850302,"Census Tract 8503.02, Kane County, Illinois","Kane","Carpentersville",3,3,2,2,0,0,0,0,3,1,14,2,2
 17089850202,"Census Tract 8502.02, Kane County, Illinois","Kane","Carpentersville",3,5,1,1,0,0,0,0,3,1,14,2,2
 17089850201,"Census Tract 8502.01, Kane County, Illinois","Kane","Carpentersville",1,3,1,1,0,0,0,0,3,1,10,1,2
@@ -1235,13 +1235,13 @@
 17043842200,"Census Tract 8422, DuPage County, Illinois","DuPage","Glen Ellyn",3,4,2,5,4,5,5,5,4,4,41,5,4
 17043841705,"Census Tract 8417.05, DuPage County, Illinois","DuPage","Glen Ellyn",3,4,4,3,5,5,5,3,4,4,40,5,4
 17043842100,"Census Tract 8421, DuPage County, Illinois","DuPage","Glen Ellyn",4,4,2,5,5,5,4,4,3,4,40,5,4
-17031842200,"Census Tract 8422, Cook County, Illinois","Cook","Glen Ellyn",2,5,3,5,4,5,5,5,1,4,39,5,4
-17031842300,"Census Tract 8423, Cook County, Illinois","Cook","Glen Ellyn",1,4,3,5,5,5,3,4,4,4,38,5,4
+17031842200,"Census Tract 8422, Cook County, Illinois","Cook","Chicago city",2,5,3,5,4,5,5,5,1,4,39,5,4
+17031842300,"Census Tract 8423, Cook County, Illinois","Cook","Chicago city",1,4,3,5,5,5,3,4,4,4,38,5,4
 17043842704,"Census Tract 8427.04, DuPage County, Illinois","DuPage","Glen Ellyn",4,4,4,3,5,5,1,3,4,4,37,5,4
-17031842000,"Census Tract 8420, Cook County, Illinois","Cook","Glen Ellyn",4,5,3,5,4,5,2,4,1,4,37,5,4
-17031841900,"Census Tract 8419, Cook County, Illinois","Cook","Glen Ellyn",1,4,4,4,5,5,4,4,1,4,36,4,4
+17031842000,"Census Tract 8420, Cook County, Illinois","Cook","Chicago city",4,5,3,5,4,5,2,4,1,4,37,5,4
+17031841900,"Census Tract 8419, Cook County, Illinois","Cook","Chicago city",1,4,4,4,5,5,4,4,1,4,36,4,4
 17043842708,"Census Tract 8427.08, DuPage County, Illinois","DuPage","Glen Ellyn",3,3,2,5,4,5,2,2,5,4,35,4,4
-17031842100,"Census Tract 8421, Cook County, Illinois","Cook","Glen Ellyn",2,3,3,3,5,5,4,4,1,4,34,4,3
+17031842100,"Census Tract 8421, Cook County, Illinois","Cook","Chicago city",2,3,3,3,5,5,4,4,1,4,34,4,3
 17043842711,"Census Tract 8427.11, DuPage County, Illinois","DuPage","Glen Ellyn",3,2,1,4,5,5,3,1,5,4,33,4,3
 17043844201,"Census Tract 8442.01, DuPage County, Illinois","DuPage","Glen Ellyn",2,5,1,3,3,5,4,2,4,4,33,4,3
 17031800200,"Census Tract 8002, Cook County, Illinois","Cook","Glencoe",5,2,4,5,5,5,4,5,4,5,44,5,4
@@ -1251,7 +1251,7 @@
 17043840911,"Census Tract 8409.11, DuPage County, Illinois","DuPage","Glendale Heights",4,4,5,3,2,2,5,1,4,2,32,4,3
 17043841111,"Census Tract 8411.11, DuPage County, Illinois","DuPage","Glendale Heights",2,4,5,4,3,3,5,1,3,2,32,4,3
 17043841204,"Census Tract 8412.04, DuPage County, Illinois","DuPage","Glendale Heights",3,5,5,3,2,3,4,1,3,2,31,3,3
-17031841200,"Census Tract 8412, Cook County, Illinois","Cook","Glendale Heights",2,3,5,3,3,3,5,1,1,2,28,2,3
+17031841200,"Census Tract 8412, Cook County, Illinois","Cook","Chicago city",2,3,5,3,3,3,5,1,1,2,28,2,3
 17043840910,"Census Tract 8409.10, DuPage County, Illinois","DuPage","Glendale Heights",1,4,5,2,2,3,4,1,3,2,27,2,3
 17031801607,"Census Tract 8016.07, Cook County, Illinois","Cook","Glenview",5,4,5,5,4,5,5,1,5,5,44,5,4
 17031802200,"Census Tract 8022, Cook County, Illinois","Cook","Glenview",5,4,2,5,4,5,4,4,5,5,43,5,4
@@ -1478,13 +1478,13 @@
 17043843601,"Census Tract 8436.01, DuPage County, Illinois","DuPage","Lombard",3,5,2,3,5,4,2,4,5,3,36,4,4
 17043842709,"Census Tract 8427.09, DuPage County, Illinois","DuPage","Lombard",4,3,4,4,3,4,2,1,5,3,33,4,3
 17043844301,"Census Tract 8443.01, DuPage County, Illinois","DuPage","Lombard",3,4,2,3,4,5,5,1,3,3,33,4,3
-17031843500,"Census Tract 8435, Cook County, Illinois","Cook","Lombard",5,1,4,2,3,5,4,5,1,3,33,4,3
+17031843500,"Census Tract 8435, Cook County, Illinois","Cook","Chicago city",5,1,4,2,3,5,4,5,1,3,33,4,3
 17043844304,"Census Tract 8443.04, DuPage County, Illinois","DuPage","Lombard",2,3,4,3,2,4,5,2,4,3,32,4,3
 17043844202,"Census Tract 8442.02, DuPage County, Illinois","DuPage","Lombard",3,3,2,4,4,4,1,2,5,3,31,3,3
-17031840400,"Census Tract 8404, Cook County, Illinois","Cook","Lombard",1,5,3,2,3,4,5,3,1,3,30,3,3
-17031843600,"Census Tract 8436, Cook County, Illinois","Cook","Lombard",1,2,4,4,5,4,2,4,1,3,30,3,3
-17031843300,"Census Tract 8433, Cook County, Illinois","Cook","Lombard",4,2,4,2,4,4,2,4,1,3,30,3,3
-17031843400,"Census Tract 8434, Cook County, Illinois","Cook","Lombard",1,3,4,1,5,5,1,4,1,3,28,2,3
+17031840400,"Census Tract 8404, Cook County, Illinois","Cook","Chicago city",1,5,3,2,3,4,5,3,1,3,30,3,3
+17031843600,"Census Tract 8436, Cook County, Illinois","Cook","Chicago city",1,2,4,4,5,4,2,4,1,3,30,3,3
+17031843300,"Census Tract 8433, Cook County, Illinois","Cook","Chicago city",4,2,4,2,4,4,2,4,1,3,30,3,3
+17031843400,"Census Tract 8434, Cook County, Illinois","Cook","Chicago city",1,3,4,1,5,5,1,4,1,3,28,2,3
 17097864518,"Census Tract 8645.18, Lake County, Illinois","Lake","Long Grove",4,3,4,5,5,5,1,2,4,5,38,5,4
 17097864108,"Census Tract 8641.08, Lake County, Illinois","Lake","Long Grove",3,3,3,3,4,5,3,2,5,5,36,4,4
 17097864107,"Census Tract 8641.07, Lake County, Illinois","Lake","Long Grove",4,2,3,3,5,5,1,1,5,5,34,4,3
@@ -1845,16 +1845,16 @@
 17097864513,"Census Tract 8645.13, Lake County, Illinois","Lake","Vernon Hills",5,4,1,5,5,4,5,4,4,4,41,5,4
 17097863902,"Census Tract 8639.02, Lake County, Illinois","Lake","Vernon Hills",4,5,4,2,4,4,5,1,5,4,38,5,4
 17097864511,"Census Tract 8645.11, Lake County, Illinois","Lake","Vernon Hills",2,3,2,5,4,4,1,3,5,4,33,4,3
-17031843700,"Census Tract 8437, Cook County, Illinois","Cook","Villa Park",5,4,2,5,4,3,4,3,3,3,36,4,4
+17031843700,"Census Tract 8437, Cook County, Illinois","Cook","Chicago city",5,4,2,5,4,3,4,3,3,3,36,4,4
 17043843700,"Census Tract 8437, DuPage County, Illinois","DuPage","Villa Park",3,5,1,3,4,3,4,3,5,3,34,4,3
-17031843100,"Census Tract 8431, Cook County, Illinois","Cook","Villa Park",4,5,4,3,3,3,3,5,1,3,34,4,3
+17031843100,"Census Tract 8431, Cook County, Illinois","Cook","Chicago city",4,5,4,3,3,3,3,5,1,3,34,4,3
 17043843100,"Census Tract 8431, DuPage County, Illinois","DuPage","Villa Park",4,3,3,3,3,3,3,5,3,3,33,4,3
 17043843800,"Census Tract 8438, DuPage County, Illinois","DuPage","Villa Park",2,5,1,3,3,3,3,4,5,3,32,4,3
 17043843200,"Census Tract 8432, DuPage County, Illinois","DuPage","Villa Park",2,5,1,3,3,3,4,5,3,3,32,4,3
 17043843302,"Census Tract 8433.02, DuPage County, Illinois","DuPage","Villa Park",4,4,1,3,4,3,2,3,3,3,30,3,3
-17031843200,"Census Tract 8432, Cook County, Illinois","Cook","Villa Park",2,3,3,2,3,3,4,5,2,3,30,3,3
+17031843200,"Census Tract 8432, Cook County, Illinois","Cook","Chicago city",2,3,3,2,3,3,4,5,2,3,30,3,3
 17043844306,"Census Tract 8443.06, DuPage County, Illinois","DuPage","Villa Park",1,5,2,1,2,4,5,1,2,3,26,2,3
-17031843800,"Census Tract 8438, Cook County, Illinois","Cook","Villa Park",1,2,2,2,3,3,3,4,1,3,24,2,2
+17031843800,"Census Tract 8438, Cook County, Illinois","Cook","Chicago city",1,2,2,2,3,3,3,4,1,3,24,2,2
 17097864205,"Census Tract 8642.05, Lake County, Illinois","Lake","Volo",2,1,5,3,4,4,4,1,5,3,32,4,3
 17097866000,"Census Tract 8660, Lake County, Illinois","Lake","Wadsworth",2,4,4,4,0,0,0,0,5,4,23,5,4
 17043846408,"Census Tract 8464.08, DuPage County, Illinois","DuPage","Warrenville",5,1,3,4,4,5,5,1,5,2,35,4,4
@@ -1862,7 +1862,7 @@
 17043841603,"Census Tract 8416.03, DuPage County, Illinois","DuPage","Warrenville",2,5,3,5,3,5,1,1,3,2,30,3,3
 17043841605,"Census Tract 8416.05, DuPage County, Illinois","DuPage","Warrenville",2,5,3,3,4,5,1,1,3,2,29,3,3
 17043841607,"Census Tract 8416.07, DuPage County, Illinois","DuPage","Warrenville",2,4,3,2,4,5,3,1,2,2,28,2,3
-17031841600,"Census Tract 8416, Cook County, Illinois","Cook","Warrenville",4,1,3,1,4,5,1,1,1,2,23,2,2
+17031841600,"Census Tract 8416, Cook County, Illinois","Cook","Chicago city",4,1,3,1,4,5,1,1,1,2,23,2,2
 17097864206,"Census Tract 8642.06, Lake County, Illinois","Lake","Wauconda",3,4,5,2,1,4,3,1,5,3,31,3,3
 17097861608,"Census Tract 8616.08, Lake County, Illinois","Lake","Waukegan",4,5,2,3,4,5,4,1,5,1,34,4,3
 17097862200,"Census Tract 8622, Lake County, Illinois","Lake","Waukegan",3,5,2,2,2,2,5,4,5,1,31,3,3
@@ -1889,8 +1889,8 @@
 17043841504,"Census Tract 8415.04, DuPage County, Illinois","DuPage","West Chicago",2,5,3,2,1,2,4,5,2,2,28,2,3
 17043841501,"Census Tract 8415.01, DuPage County, Illinois","DuPage","West Chicago",3,5,4,2,2,1,4,2,2,2,27,2,3
 17043841606,"Census Tract 8416.06, DuPage County, Illinois","DuPage","West Chicago",2,5,3,4,1,1,1,1,3,2,23,2,2
-17031841500,"Census Tract 8415, Cook County, Illinois","Cook","West Chicago",1,1,4,3,2,1,4,2,1,2,21,1,2
-17031841400,"Census Tract 8414, Cook County, Illinois","Cook","West Chicago",1,2,4,1,3,2,1,4,1,2,21,1,2
+17031841500,"Census Tract 8415, Cook County, Illinois","Cook","Chicago city",1,1,4,3,2,1,4,2,1,2,21,1,2
+17031841400,"Census Tract 8414, Cook County, Illinois","Cook","Chicago city",1,2,4,1,3,2,1,4,1,2,21,1,2
 17089850600,"Census Tract 8506, Kane County, Illinois","Kane","West Dundee",3,3,4,4,0,0,0,0,5,3,22,4,4
 17031818500,"Census Tract 8185, Cook County, Illinois","Cook","Westchester",5,4,3,4,5,4,4,1,5,3,38,5,4
 17031818100,"Census Tract 8181, Cook County, Illinois","Cook","Westchester",3,3,4,3,5,4,2,1,4,3,32,4,3
@@ -1914,10 +1914,10 @@
 17043841801,"Census Tract 8418.01, DuPage County, Illinois","DuPage","Wheaton",4,4,1,4,5,5,3,3,4,4,37,5,4
 17043842702,"Census Tract 8427.02, DuPage County, Illinois","DuPage","Wheaton",3,4,1,4,5,5,4,1,5,4,36,4,4
 17043842602,"Census Tract 8426.02, DuPage County, Illinois","DuPage","Wheaton",4,3,2,5,5,5,1,3,4,4,36,4,4
-17031842600,"Census Tract 8426, Cook County, Illinois","Cook","Wheaton",2,3,2,3,5,5,3,1,2,4,30,3,3
-17031842400,"Census Tract 8424, Cook County, Illinois","Cook","Wheaton",1,1,2,1,5,5,4,5,1,4,29,3,3
-17031841800,"Census Tract 8418, Cook County, Illinois","Cook","Wheaton",2,1,3,1,5,5,3,3,1,4,28,2,3
-17031842500,"Census Tract 8425, Cook County, Illinois","Cook","Wheaton",1,1,1,1,4,5,5,5,1,4,28,2,3
+17031842600,"Census Tract 8426, Cook County, Illinois","Cook","Chicago city",2,3,2,3,5,5,3,1,2,4,30,3,3
+17031842400,"Census Tract 8424, Cook County, Illinois","Cook","Chicago city",1,1,2,1,5,5,4,5,1,4,29,3,3
+17031841800,"Census Tract 8418, Cook County, Illinois","Cook","Chicago city",2,1,3,1,5,5,3,3,1,4,28,2,3
+17031842500,"Census Tract 8425, Cook County, Illinois","Cook","Chicago city",1,1,1,1,4,5,5,5,1,4,28,2,3
 17031802504,"Census Tract 8025.04, Cook County, Illinois","Cook","Wheeling",5,5,3,3,2,2,5,4,3,3,35,4,4
 17031802403,"Census Tract 8024.03, Cook County, Illinois","Cook","Wheeling",5,4,2,3,2,1,4,4,5,3,33,4,3
 17031802503,"Census Tract 8025.03, Cook County, Illinois","Cook","Wheeling",3,5,3,3,3,3,2,3,5,3,33,4,3
@@ -1959,10 +1959,10 @@
 17043840201,"Census Tract 8402.01, DuPage County, Illinois","DuPage","Wood Dale",4,5,5,4,4,4,5,3,5,4,43,5,4
 17043840102,"Census Tract 8401.02, DuPage County, Illinois","DuPage","Wood Dale",4,5,4,3,2,4,2,4,5,4,37,5,4
 17043840103,"Census Tract 8401.03, DuPage County, Illinois","DuPage","Wood Dale",4,5,3,4,3,4,3,4,3,4,37,5,4
-17031840200,"Census Tract 8402, Cook County, Illinois","Cook","Wood Dale",2,4,5,4,4,4,5,3,2,4,37,5,4
+17031840200,"Census Tract 8402, Cook County, Illinois","Cook","Chicago city",2,4,5,4,4,4,5,3,2,4,37,5,4
 17043840101,"Census Tract 8401.01, DuPage County, Illinois","DuPage","Wood Dale",2,5,4,3,2,4,5,3,3,4,35,4,4
 17043840104,"Census Tract 8401.04, DuPage County, Illinois","DuPage","Wood Dale",4,5,4,3,2,4,3,3,3,4,35,4,4
-17031840100,"Census Tract 8401, Cook County, Illinois","Cook","Wood Dale",1,4,3,4,2,4,5,3,2,4,32,4,3
+17031840100,"Census Tract 8401, Cook County, Illinois","Cook","Chicago city",1,4,3,4,2,4,5,3,2,4,32,4,3
 17043845808,"Census Tract 8458.08, DuPage County, Illinois","DuPage","Woodridge",5,2,3,5,3,3,4,2,5,3,35,4,4
 17043846313,"Census Tract 8463.13, DuPage County, Illinois","DuPage","Woodridge",4,2,4,5,4,4,1,1,5,3,33,4,3
 17043846315,"Census Tract 8463.15, DuPage County, Illinois","DuPage","Woodridge",3,5,3,4,3,3,2,1,5,3,32,4,3
