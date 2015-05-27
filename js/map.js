@@ -161,24 +161,23 @@ function getOneTract(tract_id){
 }
 
 function selectParcel(props){
-
   var info = "<div class='row'><div class='col-xs-6 col-md-12'>\
     <h2>" + props['municipali'] + " <small><br />Tract #" + props['geo_id2'] + "</small></h2>\
     <table class='table table-bordered table-condensed'><tbody>\
-      <tr><td><span data-content='Composite score for access to education, employment, fiscal capacity, income, and transportation opportunities.'><h3>Opportunity Index</h3></span></td><td><h3>" + displayQuintile(props['final']) + "</h3></td></tr>\
-      <tr><td><span data-content='Median market value of homes in 2010.'><i class='fa fa-home fa-fw'></i> Home value</span></td><td>" + displayQuintile(props['homeidx']) + "</td></tr>\
-      <tr><td><span data-content='Percent of residents above the poverty line.'><i class='fa fa-dollar fa-fw'></i> Residents above poverty</span></td><td>" + displayQuintile(props['povertyidx']) + "</td></tr>\
-      <tr><td><span data-content='Average time spent commuting to work. Includes time spent driving, walking or taking public transportation.'><i class='fa fa-subway fa-fw'></i> Job travel time</span></td><td>" + displayQuintile(props['trvlidx']) + "</td></tr>\
-      <tr><td><span data-content='Percent of residents with educational degrees. Includes H.S. Diploma, Bachelors Degree and Graduate Degree.'><i class='fa fa-graduation-cap fa-fw'></i> Resident education level</span></td><td>" + displayQuintile(props['degreeidx']) + "</td></tr>\
-      <tr><td><span data-content='Ease of access to job centers from this location.'><i class='fa fa-briefcase fa-fw'></i> Access to jobs</span></td><td>" + displayQuintile(props['jobidx']) + "</td></tr>\
-      <tr><td><span data-content='Residents over 18 who are employed.'><i class='fa fa-pie-chart fa-fw'></i> Employment rate</span></td><td>" + displayQuintile(props['unempidx']) + "</td></tr>\
+      <tr data-content='Composite score for access to education, employment, fiscal capacity, income, and transportation opportunities.'><td><h3>Opportunity Index</h3></td><td><h3>" + displayQuintile(props['final']) + "</h3></td><td></td></tr>\
+      <tr data-content='Median market value of homes in 2010.'><td><i class='fa fa-home fa-fw'></i> Home value</td><td>" + displayQuintile(props['homeidx']) + "</td><td><small>" + accounting.formatMoney(props['median_hom'], {precision: 0}) + "</small></td></tr>\
+      <tr data-content='Percent of residents above the poverty line.'><td><i class='fa fa-dollar fa-fw'></i> Above poverty</td><td>" + displayQuintile(props['povertyidx']) + "</td><td><small>" + formatPovertyRate(props['poverty_ra']) + "</small></td></tr>\
+      <tr data-content='Average time spent commuting to work.'><td><i class='fa fa-clock-o fa-fw'></i> Job travel time</td><td>" + displayQuintile(props['trvlidx']) + "</td><td><small>" + props['mean_trave'].toFixed(0) + "min</small></td></tr>\
+      <tr data-content='Residents over 18 who are employed.'><td><i class='fa fa-pie-chart fa-fw'></i> Employment rate</td><td>" + displayQuintile(props['unempidx']) + "</td><td><small>" + (100 - props['unemployme']).toFixed(0) + "%</small></td></tr>\
+      <tr data-content='Percent of residents who earned a High School Diploma, Bachelors Degree or Graduate Degree.'><td><i class='fa fa-graduation-cap fa-fw'></i> Education level</td><td>" + displayQuintile(props['degreeidx']) + "</td><td><small>" + props['h_s_diplo'].toFixed(0) + "% H.S. Diploma<br />" + props['bachelors'].toFixed(0) + "% Bachelors<br />" + props['graduate_d'].toFixed(0) + "% Graduate</small></td></tr>\
       ";
       
   info += "</tbody></table></div></div>";
 
   $.address.parameter('tract_id', props.geo_id2)
   $('#tract-info').html(info);
-  $('#tract-info span').popover({trigger: "hover", placement: "left"})
+
+  $('#tract-info tr').popover({trigger: "hover", placement: "left", container: 'body'})
 }
 
 function displayQuintile(val){
@@ -186,8 +185,8 @@ function displayQuintile(val){
         return "No data";
 
     else {
-        var stars = Array( val + 1 ).join( "<i class='fa fa-star'></i> " );
-        return stars;
+        var stars = Array( val + 1 ).join( "<i class='fa fa-circle'></i> " );
+        return "<span class='nowrap'>" + stars + "</span>";
     }
 }
 
@@ -205,4 +204,8 @@ function getColor(val) {
 function convertToPlainString(text) {
   if (text == undefined) return '';
   return decodeURIComponent(text);
+}
+
+function formatPovertyRate(rate) {
+  return (1.0 - rate).toFixed(0) * 100 + "%"
 }

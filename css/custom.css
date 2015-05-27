@@ -11,6 +11,8 @@ hr {
   border-color: #efefef;
 }
 
+.nowrap { white-space: nowrap; }
+
 .notes p, .notes li {
   color: #999;
   font-size: .8em;
