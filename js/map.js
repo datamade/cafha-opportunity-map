@@ -169,7 +169,7 @@ function selectParcel(props){
       <tr data-content='Percent of residents above the poverty line.'><td><i class='fa fa-dollar fa-fw'></i> Above poverty</td><td>" + displayQuintile(props['povertyidx']) + "</td><td><small>" + formatPovertyRate(props['poverty_ra']) + "</small></td></tr>\
       <tr data-content='Average time spent commuting to work.'><td><i class='fa fa-clock-o fa-fw'></i> Job travel time</td><td>" + displayQuintile(props['trvlidx']) + "</td><td><small>" + props['mean_trave'].toFixed(0) + "min</small></td></tr>\
       <tr data-content='Residents over 18 who are employed.'><td><i class='fa fa-pie-chart fa-fw'></i> Employment rate</td><td>" + displayQuintile(props['unempidx']) + "</td><td><small>" + (100 - props['unemployme']).toFixed(0) + "%</small></td></tr>\
-      <tr data-content='Percent of residents who earned a High School Diploma, Bachelors Degree or Graduate Degree.'><td><i class='fa fa-graduation-cap fa-fw'></i> Education level</td><td>" + displayQuintile(props['degreeidx']) + "</td><td><small>" + props['h_s_diplo'].toFixed(0) + "% H.S. Diploma<br />" + props['bachelors'].toFixed(0) + "% Bachelors<br />" + props['graduate_d'].toFixed(0) + "% Graduate</small></td></tr>\
+      <tr data-content='Highest level of education completed. Percent of residents who earned a High School Diploma, Bachelors Degree or Graduate Degree.'><td><i class='fa fa-graduation-cap fa-fw'></i> Education level</td><td>" + displayQuintile(props['degreeidx']) + "</td><td><small>" + props['h_s_diplo'].toFixed(0) + "% H.S. Diploma<br />" + props['bachelors'].toFixed(0) + "% Bachelors<br />" + props['graduate_d'].toFixed(0) + "% Graduate</small></td></tr>\
       ";
       
   info += "</tbody></table></div></div>";
