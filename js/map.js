@@ -172,7 +172,7 @@ function selectParcel(props){
       <tr data-content='Highest level of education completed. Percent of residents who earned a High School Diploma, Bachelors Degree or Graduate Degree.'><td><i class='fa fa-graduation-cap fa-fw'></i> Education level</td><td>" + displayQuintile(props['degreeidx']) + "</td><td><small>" + props['h_s_diplo'].toFixed(0) + "% H.S. Diploma<br />" + props['bachelors'].toFixed(0) + "% Bachelors<br />" + props['graduate_d'].toFixed(0) + "% Graduate</small></td></tr>\
       ";
       
-  info += "</tbody></table></div></div>";
+  info += "</tbody></table><p><a href='about.html'>About the opportunity index &raquo;<a/></p></div></div>";
 
   $.address.parameter('tract_id', props.geo_id2)
   $('#tract-info').html(info);
