@@ -4,6 +4,6 @@ name: "Where's the opportunity? - Chicago Area Fair Housing Alliance"
 url: http://opportunity.cafha.net
 encoding: utf-8
 timezone: America/Chicago
-description: ""
+description: "Find opportunity for education, employment, fiscal capacity, income, and transportation for any place in Chicagoland."
 gems:
   - jekyll-redirect-from
