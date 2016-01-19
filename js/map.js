@@ -207,5 +207,5 @@ function convertToPlainString(text) {
 }
 
 function formatPovertyRate(rate) {
-  return (1.0 - rate).toFixed(0) * 100 + "%"
+  return (1.0 - rate).toFixed(3) * 100 + "%"
 }
