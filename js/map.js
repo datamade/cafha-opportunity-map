@@ -164,12 +164,12 @@ function selectParcel(props){
   var info = "<div class='row'><div class='col-xs-6 col-md-12'>\
     <h2>" + props['municipali'] + " <small><br />Tract #" + props['geo_id2'] + "</small></h2>\
     <table class='table table-bordered table-condensed'><tbody>\
-      <tr data-content='Composite score for access to education, employment, fiscal capacity, income, and transportation opportunities.'><td><h3>Opportunity Index</h3></td><td><h3>" + displayQuintile(props['final']) + "</h3></td><td></td></tr>\
-      <tr data-content='Median market value of homes in 2010.'><td><i class='fa fa-home fa-fw'></i> Home value</td><td>" + displayQuintile(props['homeidx']) + "</td><td><small>" + accounting.formatMoney(props['median_hom'], {precision: 0}) + "</small></td></tr>\
-      <tr data-content='Percent of residents above the poverty line.'><td><i class='fa fa-dollar fa-fw'></i> Above poverty</td><td>" + displayQuintile(props['povertyidx']) + "</td><td><small>" + formatPovertyRate(props['poverty_ra']) + "</small></td></tr>\
-      <tr data-content='Average time spent commuting to work.'><td><i class='fa fa-clock-o fa-fw'></i> Job travel time</td><td>" + displayQuintile(props['trvlidx']) + "</td><td><small>" + props['mean_trave'].toFixed(0) + "min</small></td></tr>\
-      <tr data-content='Residents over 18 who are employed.'><td><i class='fa fa-pie-chart fa-fw'></i> Employment rate</td><td>" + displayQuintile(props['unempidx']) + "</td><td><small>" + (100 - props['unemployme']).toFixed(0) + "%</small></td></tr>\
-      <tr data-content='Highest level of education completed. Percent of residents who earned a High School Diploma, Bachelors Degree or Graduate Degree.'><td><i class='fa fa-graduation-cap fa-fw'></i> Education level</td><td>" + displayQuintile(props['degreeidx']) + "</td><td><small>" + props['h_s_diplo'].toFixed(0) + "% H.S. Diploma<br />" + props['bachelors'].toFixed(0) + "% Bachelors<br />" + props['graduate_d'].toFixed(0) + "% Graduate</small></td></tr>\
+      <tr data-content='Composite score for access to education, employment, fiscal capacity, income, and transportation opportunities.'><td><h3>Opportunity Index</h3></td><td><h3>" + displayQuintile(props['final']) + "</h3></td></tr>\
+      <tr data-content='Median market value of homes in 2010.'><td><i class='fa fa-home fa-fw'></i> Home value</td><td><small>" + accounting.formatMoney(props['median_hom'], {precision: 0}) + "</small></td></tr>\
+      <tr data-content='Percent of residents above the poverty line.'><td><i class='fa fa-dollar fa-fw'></i> Above poverty</td><td><small>" + formatPovertyRate(props['poverty_ra']) + "</small></td></tr>\
+      <tr data-content='Average time spent commuting to work.'><td><i class='fa fa-clock-o fa-fw'></i> Job travel time</td><td><small>" + props['mean_trave'].toFixed(0) + "min</small></td></tr>\
+      <tr data-content='Residents over 18 who are employed.'><td><i class='fa fa-pie-chart fa-fw'></i> Employment rate</td><td><small>" + (100 - props['unemployme']).toFixed(0) + "%</small></td></tr>\
+      <tr data-content='Highest level of education completed. Percent of residents who earned a High School Diploma, Bachelors Degree or Graduate Degree.'><td><i class='fa fa-graduation-cap fa-fw'></i> Education level</td><td><small>" + props['h_s_diplo'].toFixed(0) + "% H.S. Diploma<br />" + props['bachelors'].toFixed(0) + "% Bachelors<br />" + props['graduate_d'].toFixed(0) + "% Graduate</small></td></tr>\
       ";
       
   info += "</tbody></table><p><a href='about.html'>About the opportunity index &raquo;<a/></p></div></div>";
@@ -207,5 +207,5 @@ function convertToPlainString(text) {
 }
 
 function formatPovertyRate(rate) {
-  return (1.0 - rate).toFixed(3) * 100 + "%"
+  return ((1.0 - rate).toFixed(3) * 100).toFixed(1) + "%"
 }
